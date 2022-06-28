@@ -15,7 +15,6 @@ namespace SafeAbuse
         private int standTime;
         private int sitTime;
         private int seconds = 60;
-        private bool showAlert = true;
 
         public SafeAbuse()
         {
@@ -26,24 +25,20 @@ namespace SafeAbuse
         {
             StopTimers();
         }
-
-        private void btnResetTimer_Click(object sender, EventArgs e)
+        private void btnStartTimer_Click(object sender, EventArgs e)
         {
-            StopTimers();
+            lblStand.Text = "Stand (" + txtTimeStand.Text + ")";
+            lblSit.Text = "Sit (" + txtTimeSit.Text + ")";
             StartTimers(1);
-
-            seconds = 60;
-            lblStand.Text = "Stand (00)";
-            lblSit.Text = "Sit (00)";
         }
 
-        private void StopTimers()
+        public void StopTimers()
         {
             timerStand.Stop();
             timerSit.Stop();
             timerSeconds.Stop();
         }
-        private void StartTimers(int identifier)
+        public void StartTimers(int identifier)
         {
             if (identifier == 1)
                 timerStand.Start();
@@ -52,12 +47,6 @@ namespace SafeAbuse
             timerSeconds.Start();
         }
 
-        private void btnStartTimer_Click(object sender, EventArgs e)
-        {
-            lblStand.Text = "Stand (" + txtTimeStand.Text + ")";
-            lblSit.Text = "Sit (" + txtTimeSit.Text + ")";
-            StartTimers(1);
-        }
 
         private void TimerStand_Tick(object sender, EventArgs e)
         {
@@ -70,12 +59,16 @@ namespace SafeAbuse
             {
                 lblStand.Text = "Stand (" + txtTimeStand.Text + ")";
                 StopTimers();
-                StartTimers(2);
+                popUpSwitchPos2.Show();
             }
         }
-
         private void TimerSit_Tick(object sender, EventArgs e)
         {
+            panelBody.Show();
+            panelBody.BringToFront();
+
+            popUpSwitchPos2.Hide();
+
             int.TryParse(lblSit.Text.Split('(')[1].Split(')')[0], out sitTime);
 
             sitTime--;
@@ -84,10 +77,8 @@ namespace SafeAbuse
             {
                 lblSit.Text = "Sit (" + txtTimeSit.Text + ")";
                 StopTimers();
-                StartTimers(1);
             }
         }
-
         private void TimerSeconds_Tick(object sender, EventArgs e)
         {
             lblSecondCounter.Text = seconds.ToString();
@@ -98,5 +89,9 @@ namespace SafeAbuse
             seconds--;
         }
 
+        private void popUpSwitchPos2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
