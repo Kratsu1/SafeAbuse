@@ -96,6 +96,7 @@
             this.btnStopTimer.TabIndex = 5;
             this.btnStopTimer.Text = "Stop";
             this.btnStopTimer.UseVisualStyleBackColor = false;
+            this.btnStopTimer.DoubleClick += new System.EventHandler(this.btnResetTimer_Click);
             this.btnStopTimer.Click += new System.EventHandler(this.btnStopTimer_Click);
             // 
             // timer
@@ -107,7 +108,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(412, 293);
+            this.ClientSize = new System.Drawing.Size(354, 237);
             this.Controls.Add(this.btnStopTimer);
             this.Controls.Add(this.btnStartTimer);
             this.Controls.Add(this.lblSit);

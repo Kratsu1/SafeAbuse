@@ -26,6 +26,13 @@ namespace SafeAbuse
             timer.Stop();
         }
 
+        private void btnResetTimer_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+            lblStand.Text = "Stand (00)";
+            lblSit.Text = "Sit (00)";
+        }
+
         private void btnStartTimer_Click(object sender, EventArgs e)
         {
             timer.Start();
@@ -39,7 +46,7 @@ namespace SafeAbuse
 
             if (lblSitTimer == 0 || lblStandTimer != 0)
             {
-                if(lblSitTimer == 0 && showAlert)
+                if(showAlert)
                 {
                     showAlert = false;
                     MessageBox.Show("Stand-Up");
@@ -55,6 +62,9 @@ namespace SafeAbuse
                     lblStand.Text = "Stand (" + standTime + ")";
                 }
                 standTime--;
+
+                if (lblStandTimer == 1)
+                    showAlert = true;
             }
 
             if(lblStandTimer == 0)
@@ -76,6 +86,8 @@ namespace SafeAbuse
                 }
                 sitTime--;
 
+                if (lblSitTimer == 1)
+                    showAlert = true;
             }
         }
     }
