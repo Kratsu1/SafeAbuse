@@ -69,6 +69,7 @@ namespace SafeAbuse
 
             if (standTime == 0)
             {
+                System.Media.SystemSounds.Beep.Play();
                 panelStandUp.Visible = false;
                 panelSitDown.Visible = true;
                 StopTimers();
@@ -83,6 +84,7 @@ namespace SafeAbuse
 
             if (sitTime == 0)
             {
+                System.Media.SystemSounds.Beep.Play();
                 panelStandUp.Visible = true;
                 panelSitDown.Visible = false;
                 StopTimers();

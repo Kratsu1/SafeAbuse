@@ -34,11 +34,11 @@
             this.timerSeconds = new System.Windows.Forms.Timer(this.components);
             this.timerSit = new System.Windows.Forms.Timer(this.components);
             this.panelStandUp = new System.Windows.Forms.Panel();
-            this.lblSwitchPos = new System.Windows.Forms.Label();
             this.btnSwitchOkay = new System.Windows.Forms.Button();
+            this.lblSwitchPos = new System.Windows.Forms.Label();
             this.panelSitDown = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnOkaySitDown = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTimeStand = new System.Windows.Forms.TextBox();
             this.lblStand = new System.Windows.Forms.Label();
             this.txtTimeSit = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@
             // 
             // timerStand
             // 
-            this.timerStand.Interval = 1000;
+            this.timerStand.Interval = 60000;
             this.timerStand.Tick += new System.EventHandler(this.TimerStand_Tick);
             // 
             // timerSeconds
@@ -65,7 +65,7 @@
             // 
             // timerSit
             // 
-            this.timerSit.Interval = 1000;
+            this.timerSit.Interval = 60000;
             this.timerSit.Tick += new System.EventHandler(this.TimerSit_Tick);
             // 
             // panelStandUp
@@ -77,18 +77,6 @@
             this.panelStandUp.Size = new System.Drawing.Size(326, 113);
             this.panelStandUp.TabIndex = 17;
             this.panelStandUp.Visible = false;
-            // 
-            // lblSwitchPos
-            // 
-            this.lblSwitchPos.AutoSize = true;
-            this.lblSwitchPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.lblSwitchPos.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSwitchPos.Location = new System.Drawing.Point(33, 14);
-            this.lblSwitchPos.Name = "lblSwitchPos";
-            this.lblSwitchPos.Size = new System.Drawing.Size(283, 26);
-            this.lblSwitchPos.TabIndex = 2;
-            this.lblSwitchPos.Text = "Switch To Standing Position";
-            this.lblSwitchPos.UseWaitCursor = true;
             // 
             // btnSwitchOkay
             // 
@@ -102,6 +90,18 @@
             this.btnSwitchOkay.UseWaitCursor = true;
             this.btnSwitchOkay.Click += new System.EventHandler(this.btnOkayStandUp_Click);
             // 
+            // lblSwitchPos
+            // 
+            this.lblSwitchPos.AutoSize = true;
+            this.lblSwitchPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.lblSwitchPos.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblSwitchPos.Location = new System.Drawing.Point(33, 14);
+            this.lblSwitchPos.Name = "lblSwitchPos";
+            this.lblSwitchPos.Size = new System.Drawing.Size(283, 26);
+            this.lblSwitchPos.TabIndex = 2;
+            this.lblSwitchPos.Text = "Switch To Standing Position";
+            this.lblSwitchPos.UseWaitCursor = true;
+            // 
             // panelSitDown
             // 
             this.panelSitDown.Controls.Add(this.btnOkaySitDown);
@@ -111,18 +111,6 @@
             this.panelSitDown.Size = new System.Drawing.Size(326, 101);
             this.panelSitDown.TabIndex = 18;
             this.panelSitDown.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(33, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 26);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Switch To Sitting Position";
-            this.label1.UseWaitCursor = true;
             // 
             // btnOkaySitDown
             // 
@@ -135,6 +123,18 @@
             this.btnOkaySitDown.UseVisualStyleBackColor = false;
             this.btnOkaySitDown.UseWaitCursor = true;
             this.btnOkaySitDown.Click += new System.EventHandler(this.btnOkaySitDown_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(33, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 26);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Switch To Sitting Position";
+            this.label1.UseWaitCursor = true;
             // 
             // txtTimeStand
             // 
