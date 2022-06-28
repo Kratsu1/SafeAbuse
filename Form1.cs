@@ -19,7 +19,6 @@ namespace SafeAbuse
         public SafeAbuse()
         {
             InitializeComponent();
-            panelStandUp.Visible = false;
         }
 
         private void btnStopTimer_Click(object sender, EventArgs e)
@@ -34,12 +33,15 @@ namespace SafeAbuse
         }
         private void btnOkayStandUp_Click(object sender, EventArgs e)
         {
+            panelStandUp.Visible = false;
+            lblStand.Text = "Stand (" + txtTimeStand.Text + ")";
             StartTimers(1);
         }
         private void btnOkaySitDown_Click(object sender, EventArgs e)
         {
-            StartTimers(2);
             panelSitDown.Visible = false;
+            lblSit.Text = "Sit (" + txtTimeSit.Text + ")";
+            StartTimers(2);
         }
 
         public void StopTimers()
@@ -67,8 +69,8 @@ namespace SafeAbuse
 
             if (standTime == 0)
             {
-                lblStand.Text = "Stand (" + txtTimeStand.Text + ")";
-                panelStandUp.Visible = true;
+                panelStandUp.Visible = false;
+                panelSitDown.Visible = true;
                 StopTimers();
             }
         }
@@ -76,12 +78,12 @@ namespace SafeAbuse
         {
             int.TryParse(lblSit.Text.Split('(')[1].Split(')')[0], out sitTime);
 
-            standTime--;
-            lblSit.Text = "Stand (" + sitTime + ")";
+            sitTime--;
+            lblSit.Text = "Sit (" + sitTime + ")";
 
-            if (standTime == 0)
+            if (sitTime == 0)
             {
-                lblSit.Text = "Stand (" + txtTimeSit.Text + ")";
+                panelStandUp.Visible = true;
                 panelSitDown.Visible = false;
                 StopTimers();
             }
@@ -94,11 +96,6 @@ namespace SafeAbuse
                 seconds = 60;
             }
             seconds--;
-        }
-
-        private void popUpSwitchPos2_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
