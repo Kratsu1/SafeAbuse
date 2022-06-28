@@ -42,8 +42,15 @@
             this.txtTimeSit = new System.Windows.Forms.TextBox();
             this.lblStand = new System.Windows.Forms.Label();
             this.txtTimeStand = new System.Windows.Forms.TextBox();
-            this.popUpSwitchPos2 = new Pages.PopUpSwitchPos();
+            this.panelStandUp = new System.Windows.Forms.Panel();
+            this.btnSwitchOkay = new System.Windows.Forms.Button();
+            this.lblSwitchPos = new System.Windows.Forms.Label();
+            this.panelSitDown = new System.Windows.Forms.Panel();
+            this.btnOkaySitDown = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelBody.SuspendLayout();
+            this.panelStandUp.SuspendLayout();
+            this.panelSitDown.SuspendLayout();
             this.SuspendLayout();
             // 
             // timerStand
@@ -63,7 +70,7 @@
             // 
             // panelBody
             // 
-            this.panelBody.Controls.Add(this.popUpSwitchPos2);
+            this.panelBody.Controls.Add(this.panelStandUp);
             this.panelBody.Controls.Add(this.lblSecondCounter);
             this.panelBody.Controls.Add(this.lblinfo);
             this.panelBody.Controls.Add(this.btnStopTimer);
@@ -168,15 +175,74 @@
             this.txtTimeStand.Size = new System.Drawing.Size(157, 23);
             this.txtTimeStand.TabIndex = 9;
             // 
-            // popUpSwitchPos2
+            // panelStandUp
             // 
-            this.popUpSwitchPos2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.popUpSwitchPos2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.popUpSwitchPos2.Location = new System.Drawing.Point(0, 0);
-            this.popUpSwitchPos2.Name = "popUpSwitchPos2";
-            this.popUpSwitchPos2.Size = new System.Drawing.Size(326, 220);
-            this.popUpSwitchPos2.TabIndex = 17;
-            this.popUpSwitchPos2.Visible = false;
+            this.panelStandUp.Controls.Add(this.panelSitDown);
+            this.panelStandUp.Controls.Add(this.btnSwitchOkay);
+            this.panelStandUp.Controls.Add(this.lblSwitchPos);
+            this.panelStandUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStandUp.Location = new System.Drawing.Point(0, 0);
+            this.panelStandUp.Name = "panelStandUp";
+            this.panelStandUp.Size = new System.Drawing.Size(326, 220);
+            this.panelStandUp.TabIndex = 17;
+            // 
+            // btnSwitchOkay
+            // 
+            this.btnSwitchOkay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnSwitchOkay.Location = new System.Drawing.Point(117, 94);
+            this.btnSwitchOkay.Name = "btnSwitchOkay";
+            this.btnSwitchOkay.Size = new System.Drawing.Size(85, 48);
+            this.btnSwitchOkay.TabIndex = 3;
+            this.btnSwitchOkay.Text = "Okay";
+            this.btnSwitchOkay.UseVisualStyleBackColor = false;
+            this.btnSwitchOkay.UseWaitCursor = true;
+            this.btnSwitchOkay.Click += new System.EventHandler(this.btnOkayStandUp_Click);
+            // 
+            // lblSwitchPos
+            // 
+            this.lblSwitchPos.AutoSize = true;
+            this.lblSwitchPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.lblSwitchPos.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblSwitchPos.Location = new System.Drawing.Point(22, 38);
+            this.lblSwitchPos.Name = "lblSwitchPos";
+            this.lblSwitchPos.Size = new System.Drawing.Size(283, 26);
+            this.lblSwitchPos.TabIndex = 2;
+            this.lblSwitchPos.Text = "Switch To Standing Position";
+            this.lblSwitchPos.UseWaitCursor = true;
+            // 
+            // panelSitDown
+            // 
+            this.panelSitDown.Controls.Add(this.btnOkaySitDown);
+            this.panelSitDown.Controls.Add(this.label1);
+            this.panelSitDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSitDown.Location = new System.Drawing.Point(0, 0);
+            this.panelSitDown.Name = "panelSitDown";
+            this.panelSitDown.Size = new System.Drawing.Size(326, 220);
+            this.panelSitDown.TabIndex = 18;
+            // 
+            // btnOkaySitDown
+            // 
+            this.btnOkaySitDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnOkaySitDown.Location = new System.Drawing.Point(117, 94);
+            this.btnOkaySitDown.Name = "btnOkaySitDown";
+            this.btnOkaySitDown.Size = new System.Drawing.Size(85, 48);
+            this.btnOkaySitDown.TabIndex = 3;
+            this.btnOkaySitDown.Text = "Okay";
+            this.btnOkaySitDown.UseVisualStyleBackColor = false;
+            this.btnOkaySitDown.UseWaitCursor = true;
+            this.btnOkaySitDown.Click += new System.EventHandler(this.btnOkaySitDown_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(33, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 26);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Switch To Sitting Position";
+            this.label1.UseWaitCursor = true;
             // 
             // SafeAbuse
             // 
@@ -192,6 +258,10 @@
             this.Text = "SafeAbuse";
             this.panelBody.ResumeLayout(false);
             this.panelBody.PerformLayout();
+            this.panelStandUp.ResumeLayout(false);
+            this.panelStandUp.PerformLayout();
+            this.panelSitDown.ResumeLayout(false);
+            this.panelSitDown.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -209,7 +279,12 @@
         private System.Windows.Forms.TextBox txtTimeSit;
         private System.Windows.Forms.Label lblStand;
         private System.Windows.Forms.TextBox txtTimeStand;
-        private Pages.PopUpSwitchPos popUpSwitchPos2;
+        private System.Windows.Forms.Panel panelStandUp;
+        private System.Windows.Forms.Button btnSwitchOkay;
+        private System.Windows.Forms.Label lblSwitchPos;
+        private System.Windows.Forms.Panel panelSitDown;
+        private System.Windows.Forms.Button btnOkaySitDown;
+        private System.Windows.Forms.Label label1;
     }
 }
 
