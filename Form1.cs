@@ -49,6 +49,7 @@ namespace SafeAbuse
                 timerStand.Start();
             else
                 timerSit.Start();
+            seconds = 59;
             timerSeconds.Start();
         }
 
@@ -88,7 +89,7 @@ namespace SafeAbuse
             lblSecondCounter.Text = seconds.ToString();
             if(seconds == 1)
             {
-                seconds = 60;
+                seconds = 59;
             }
             seconds--;
         }
