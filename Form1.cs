@@ -12,31 +12,71 @@ namespace SafeAbuse
 {
     public partial class SafeAbuse : Form
     {
+        private int standTime;
+        private int sitTime;
+        private bool showAlert = true;
+
         public SafeAbuse()
         {
             InitializeComponent();
         }
 
+        private void btnStopTimer_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+        }
+
         private void btnStartTimer_Click(object sender, EventArgs e)
         {
+            timer.Start();
+        }
 
-            if(int.TryParse(txtTimeStand.Text, out int standTime) && int.TryParse(txtTimeSit.Text, out int sitTime))
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            int.TryParse(lblStand.Text.Split('(')[1].Split(')')[0], out int lblStandTimer);
+            int.TryParse(lblSit.Text.Split('(')[1].Split(')')[0], out int lblSitTimer);
+
+            if (lblSitTimer == 0 || lblStandTimer != 0)
             {
-                lblStand.Text = "Stand (" + standTime+ ")";
-                lblSit.Text = "Sit (" + sitTime+ ")";
+                if(lblSitTimer == 0 && showAlert)
+                {
+                    showAlert = false;
+                    MessageBox.Show("Stand-Up");
+                }
 
+                if (lblStandTimer != 0)
+                {
+                    lblStand.Text = "Stand (" + standTime + ")";
+                }
 
-                
-                MessageBox.Show(standTime + " " + sitTime);
-
+                else if (int.TryParse(txtTimeStand.Text, out standTime))
+                {
+                    lblStand.Text = "Stand (" + standTime + ")";
+                }
+                standTime--;
             }
 
-            else
+            if(lblStandTimer == 0)
             {
-                MessageBox.Show("Enter Number");
+
+                if (showAlert)
+                {
+                    showAlert = false;
+                    MessageBox.Show("Sit-Down");
+                }
+
+                if(lblSitTimer != 0)
+                {
+                    lblSit.Text = "Sit (" + sitTime + ")";
+                }
+                else if (int.TryParse(txtTimeSit.Text, out sitTime))
+                {
+                    lblSit.Text = "Sit (" + sitTime + ")";
+                }
+                sitTime--;
+
             }
-
-
         }
     }
 }

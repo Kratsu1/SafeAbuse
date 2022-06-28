@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtTimeStand = new System.Windows.Forms.TextBox();
             this.lblStand = new System.Windows.Forms.Label();
             this.txtTimeSit = new System.Windows.Forms.TextBox();
             this.lblSit = new System.Windows.Forms.Label();
             this.btnStartTimer = new System.Windows.Forms.Button();
-            this.btnResetTimer = new System.Windows.Forms.Button();
+            this.btnStopTimer = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtTimeStand
             // 
-            this.txtTimeStand.Location = new System.Drawing.Point(141, 20);
+            this.txtTimeStand.Location = new System.Drawing.Point(141, 27);
             this.txtTimeStand.Name = "txtTimeStand";
             this.txtTimeStand.Size = new System.Drawing.Size(172, 20);
             this.txtTimeStand.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             // txtTimeSit
             // 
-            this.txtTimeSit.Location = new System.Drawing.Point(141, 77);
+            this.txtTimeSit.Location = new System.Drawing.Point(141, 89);
             this.txtTimeSit.Name = "txtTimeSit";
             this.txtTimeSit.Size = new System.Drawing.Size(172, 20);
             this.txtTimeSit.TabIndex = 2;
@@ -83,24 +85,30 @@
             this.btnStartTimer.UseVisualStyleBackColor = false;
             this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
             // 
-            // btnResetTimer
+            // btnStopTimer
             // 
-            this.btnResetTimer.BackColor = System.Drawing.Color.Red;
-            this.btnResetTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetTimer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnResetTimer.Location = new System.Drawing.Point(238, 134);
-            this.btnResetTimer.Name = "btnResetTimer";
-            this.btnResetTimer.Size = new System.Drawing.Size(75, 67);
-            this.btnResetTimer.TabIndex = 5;
-            this.btnResetTimer.Text = "Reset";
-            this.btnResetTimer.UseVisualStyleBackColor = false;
+            this.btnStopTimer.BackColor = System.Drawing.Color.Red;
+            this.btnStopTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStopTimer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnStopTimer.Location = new System.Drawing.Point(238, 134);
+            this.btnStopTimer.Name = "btnStopTimer";
+            this.btnStopTimer.Size = new System.Drawing.Size(75, 67);
+            this.btnStopTimer.TabIndex = 5;
+            this.btnStopTimer.Text = "Stop";
+            this.btnStopTimer.UseVisualStyleBackColor = false;
+            this.btnStopTimer.Click += new System.EventHandler(this.btnStopTimer_Click);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // SafeAbuse
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(331, 228);
-            this.Controls.Add(this.btnResetTimer);
+            this.ClientSize = new System.Drawing.Size(412, 293);
+            this.Controls.Add(this.btnStopTimer);
             this.Controls.Add(this.btnStartTimer);
             this.Controls.Add(this.lblSit);
             this.Controls.Add(this.txtTimeSit);
@@ -125,7 +133,8 @@
         private System.Windows.Forms.TextBox txtTimeSit;
         private System.Windows.Forms.Label lblSit;
         private System.Windows.Forms.Button btnStartTimer;
-        private System.Windows.Forms.Button btnResetTimer;
+        private System.Windows.Forms.Button btnStopTimer;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
